@@ -1,8 +1,6 @@
 #include "test.h"
 
-#define NUM_TEST 1L
-
-
+#define NUM_TEST 500L
 
 __uint128_t eval_poly(U128 co[], uint32_t len, U128 x) {
   
@@ -123,7 +121,6 @@ int test_polynomial_mul(const ntt_pre_table_t *t) {
 
   return SUCCESS;
 }
-
 
 int test_poly_mul_eval() {
 
