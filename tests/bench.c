@@ -8,6 +8,7 @@ static inline uint64_t cal_time(struct timespec time_start, struct timespec time
 #  define MEASURENTT(x, y) \
   const int total = 100000;                                                  \
   struct timespec time_start = { 0, 0 }, time_end = { 0, 0 };                     \
+  x;                                                                              \
   clock_gettime(CLOCK_REALTIME, &time_start);                                     \
   for (uint64_t i = 0; i < total; i++) {                                          \
     x;                                                                            \
