@@ -18,8 +18,8 @@ static inline uint64_t random64() {
 
 static inline void random_buf(__uint128_t *values, const uint64_t n, const __uint128_t q) {
   for(uint64_t i = 0; i < n; i++) {
-    uint64_t l = i + 1; //random64(); 
-    uint64_t h = 0;//random64(); 
+    uint64_t l = random64(); 
+    uint64_t h = random64(); 
 
     values[i] = (__uint128_t)l | ((__uint128_t)h << 64);
   }

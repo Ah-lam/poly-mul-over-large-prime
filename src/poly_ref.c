@@ -45,20 +45,20 @@ void polynomial_mul(const ntt_pre_table_t *t, const __uint128_t a[], const __uin
 }
 
 void polynomial_mul_normal(const ntt_pre_table_t *t, const __uint128_t a[], const __uint128_t b[], __uint128_t c[]) {
-  __uint128_t ar[t->n];
-  __uint128_t br[t->n];
+  // __uint128_t ar[t->n];
+  // __uint128_t br[t->n];
 
   size_t len = t->n >> 1;
-  memcpy(ar, a, len * sizeof(__uint128_t));
-  memcpy(br, b, len * sizeof(__uint128_t));
+  // memcpy(ar, a, len * sizeof(__uint128_t));
+  // memcpy(br, b, len * sizeof(__uint128_t));
 
-  memset(ar + len, 0, len * sizeof(__uint128_t));
-  memset(br + len, 0, len * sizeof(__uint128_t));
+  // memset(ar + len, 0, len * sizeof(__uint128_t));
+  // memset(br + len, 0, len * sizeof(__uint128_t));
   memset(c, 0, t->n * sizeof(__uint128_t));
   
   for (size_t i = 0; i < len; i++) {
     for (size_t j = 0; j < len; j++) {
-       c[i + j] += mul_mont(ar[i], br[j]);
+       c[i + j] += mul_mont(a[i], b[j]);
     }
   }
 }

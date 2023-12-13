@@ -85,8 +85,8 @@ int poly_mul_eval(const r_poly_t ins[], uint32_t poly_nums, r_poly_t *outp, cons
   __uint128_t xm = enter_mont(convert64to128(x));
 
   size_t half_len = outs.len >> 1;
-  // only estimate polynomials of the third highest iterm
-  __uint128_t r = evaluate_poly(outs.coef, half_len - 1, xm);
+  // only estimate polynomials from the third iterm to the highest iterm
+  __uint128_t r = evaluate_poly(outs.coef + 2, half_len - 1, xm);
 
   __uint128_t gamma128 = back_from_mont(r);
 
